@@ -13,7 +13,7 @@ public class trial {
         default void show() { System.out.println("C"); }
     }
 
-    class D implements B, C {}
+    class D implements B {}
 
     //int x = 10;
     //int y = 20;
