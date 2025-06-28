@@ -1,0 +1,43 @@
+body {
+    background-image: url("/Resources/black_bg_image.jpg");
+}
+.headingborder {
+    border: 1px solid #ffffff;
+    width: 65%;
+    height: 15%;
+    position: center;
+    top: 0;
+    left: 0;
+}
+.headingcolor {
+    text-align: center;
+    font-size: 4em;
+    color: #ffffff;
+    font-family: 'Pirata One', cursive;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchbar {
+    width: 25%;
+    margin: 20px auto 0 auto;
+    border: 1px solid #ffffff;
+    padding: 8px 12px;
+    background: #111;
+    color: #fff;
+    font-size: 1em;
+    border-radius: 4px;
+    display: block;
+}
+.searchbar:focus {
+    outline: none;
+    border-color: #0ac5f4;
+}
+.image1 {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+}

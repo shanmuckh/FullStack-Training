@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dropdown Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background: #2c3e50;
+            overflow: hidden;
+            display: flex;
+        }
+        .navbar ul li {
+            position: relative;
+        }
+        .navbar ul li a {
+            display: block;
+            color: #fff;
+            padding: 14px 20px;
+            text-decoration: none;
+            transition: background 0.3s;
+            font-weight: bold;
+        }
+        .navbar ul li a:hover { background: #3498db; }
+        .navbar ul li ul.dropdown-content {
+            display: none;
+            position: absolute;
+            background: #34495e;
+            min-width: 160px;
+            top: 100%;
+            left: 0;
+            z-index: 1;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        .navbar ul li:hover > ul.dropdown-content {
+            display: block;
+        }
+        .navbar ul li ul.dropdown-content li a {
+            padding: 12px 16px;
+        }
+        .navbar ul li ul.dropdown-content li a:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li>
+                <a href="#">Classes</a>
+                <ul class="dropdown-content">
+                    <li><a href="#">Grade 1</a></li>
+                    <li><a href="#">Grade 2</a></li>
+                    <li><a href="#">Grade 3</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Subjects</a>
+                <ul class="dropdown-content">
+                    <li><a href="#">Math</a></li>
+                    <li><a href="#">Science</a></li>
+                    <li><a href="#">English</a></li>
+                </ul>
+            </li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

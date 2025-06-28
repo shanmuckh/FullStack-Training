@@ -1,0 +1,80 @@
+
+        body {
+            background: linear-gradient(135deg, #2a94db 0%, #8c3dec 100%);
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background: #fff;
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+            width: 400px;
+            max-width: 90vw;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 1.5rem;
+            color: #333;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 90%;
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            border: 1px solid #d1d9e6;
+            border-radius: 8px;
+            background: #f7f9fa;
+            font-size: 1rem;
+            transition: border 0.2s;
+        }
+        
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0.5rem 0 1rem 0;
+            font-size: 0.95rem;
+        }
+        .remember-forgot label {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            color: #555;
+        }
+        .remember-forgot a {
+            color: #278de6;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        button[type="submit"] {
+            width: 100%;
+            padding: 0.9rem;
+            background: linear-gradient(90deg, #3c7cec 0%);
+            border: none;
+            border-radius: 50px;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 0.5rem;
+            box-shadow: 0 2px 8px rgba(116, 235, 213, 0.15);
+        }
+        .signup-text {
+            margin-top: 1.2rem;
+            color: #666;
+            font-size: 1rem;
+        }
+        .signup-text a {
+            color: #2ac3fb;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+    
