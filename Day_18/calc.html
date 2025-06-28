@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <input type="number" id="a" placeholder="Enter first number">
+    <input type="number" id="b" placeholder="Enter second number">
+    <input type="text" id="c" placeholder="Enter operator (+ or -)">
+    <button onclick="main()">Calculate</button>
+    <script>
+        function main()
+{
+    var x=Number(document.getElementById("a").value);
+    var y=Number(document.getElementById("b").value);
+    var z=document.getElementById("c").value;
+    alert(calc(x, y, z));
+}
+        function calc(a,b,c){
+            if(c=="+"){
+                var x=add(a,b);
+                return x;
+            }
+            else{
+                var x=sub(a,b);
+                return x;
+            }
+        }
+        function add(a,b){
+            return Number(a) + Number(b);
+        }
+        function sub(a,b){
+            return Number(a) - Number(b);
+        }
+        console.log(calc(3,4,"+"));
+
+    </script>
+</body>
+</html>

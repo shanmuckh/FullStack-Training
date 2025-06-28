@@ -1,0 +1,138 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="results.css">
+    <title>Console</title>
+</head>
+<body class="body">
+    <center><h1>Check The Console</h1></center>
+    <hr>
+    <center><p>Open the console to see the results of the JavaScript code</p></center>
+    <hr>
+    <center><h2>Follow these steps:</h2>
+        <div style="display: flex; justify-content: center;"></div>
+            <div style="text-align: left;">
+                <p>1) Right-click anywhere on the page.</p>
+                <p>2) Select <strong>Inspect</strong> or <strong>Inspect Element</strong> from the menu.</p>
+                <p>3) In the developer tools panel, click on the <strong>Console</strong> tab.</p>
+                <p>4) You will now see the console output.</p>
+            </div>
+        </div>
+    </center>
+    <script>
+        var a = 88;
+        var b = 99;
+        var c = 78;
+        var d = a + b + c;
+        
+        console.log("Marks Calculation.");
+        console.log("Total: " + d); 
+        console.log("Average: " + (d / 3));
+        if (a <100 && a > 80 ) {
+            console.log("Sub1 grade: A+");
+        }
+        else if (a < 80 && a > 60) {
+            console.log("Sub1 grade: A");
+        } else if (a < 60 && a > 40) {
+            console.log("Sub1 grade: B");
+        } else if (a < 40 && a > 20) {
+            console.log("Sub1 grade: C");
+        } else {
+            console.log("Sub1 grade: D");
+        }
+        if (b <100 && b > 80 ) {
+            console.log("Sub2 grade: A+");
+        }
+        else if (b < 80 && b > 60) {
+            console.log("Sub2 grade: A");
+        } else if (b < 60 && b > 40) {
+            console.log("Sub2 grade: B");
+        } else if (b < 40 && b > 20) {
+            console.log("Sub2 grade: C");
+        } else {
+            console.log("Sub2 grade: D");
+        }
+        if (c <100 && c > 80 ) {
+            console.log("Sub3 grade: A+");
+        }
+        else if (c < 80 && c > 60) {
+            console.log("Sub3 grade: A");
+        } else if (c < 60 && c > 40) {
+            console.log("Sub3 grade: B");
+        } else if (c < 40 && c > 20) {
+            console.log("Sub3 grade: C");
+        } else {
+            console.log("Sub3 grade: D");
+        }
+
+
+        console.log("");
+        console.log("");
+        console.log("E-Bill Calculation.");
+        var u = 250;
+        console.log("Units consumed: " + u);
+        if (u < 200){
+            console.log("Charge: Free");
+        }
+        else if (u >= 200 && u < 500) {
+            console.log("Charge: " + (u * 2));
+        } else if (u >= 500 && u < 1000) {
+            console.log("Charge: " + (u * 5));
+        } else if (u >= 1000 && u < 1500) {
+            console.log("Charge: " + (u * 10));
+        } else {
+            console.log("Charge: " + (u * 20));
+        }
+
+        console.log("");
+        console.log("");
+        console.log("Calculate a no. is zero/positive/negative ?");
+        var num = 5;
+        console.log("Number: " + num);
+        if (num > 0) {
+            console.log(num + " is positive");
+        } else if (num < 0) {
+            console.log(num + " is negative");
+        } else {
+            console.log(num + " is zero");
+        }
+        console.log("");
+        console.log("");
+        console.log("Check if given year is leap year or not ?");
+        var year = 2020;
+        console.log("Year: " + year);
+        if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+            console.log(year + " is a leap year");
+        } else {
+            console.log(year + " is not a leap year");
+        }
+
+
+        console.log("");
+        console.log("");
+        console.log("Even numbers from 1 to 50:");
+        let e = 0;
+        for (let i = 1; i <= 50; i++) {
+            if (i % 2 === 0) {
+                // console.log(i);
+                e++;
+            }
+        }
+        console.log("Total even numbers between 1 and 50: " + e);
+
+        console.log("");
+        console.log("");
+        console.log("Print factors of a given number:");
+        let number = 36;
+        console.log("Number: " + number);
+        console.log("Factors:");
+        for (let i = 1; i <= number; i++) {
+            if (number % i === 0) {
+                console.log(i);
+            }
+        }
+
+    </script>
+</body>
+</html>

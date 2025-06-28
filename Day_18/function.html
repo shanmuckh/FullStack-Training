@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        Enter a value:<input type="text" name="a" id="a"><br>
+        Enter b value:<input type="text" name="b" id="b"><br>
+        Result:<input type="text" name="c" id="c" readonly><br>
+        <input type="submit" onclick="return val()">
+    </form>
+    <script>
+        function val() {
+            var x = parseFloat(document.getElementById("a").value);
+            var y = parseFloat(document.getElementById("b").value);
+            if (isNaN(x) || isNaN(y)) {
+                alert("Please enter valid numbers");
+                return false;
+            }
+            var result = x + y; 
+            document.getElementById("c").value = result;
+            return false; 
+        }
+    </script>
+</body>
+</html>

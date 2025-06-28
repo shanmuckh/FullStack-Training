@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post">
+        Enter any Number: <input type="text" name="a" id="a"><br>
+        Even or Odd:
+        <input type="button" onclick="return calc()" placeholder="Click to check" value="result"><br>
+    </form>
+    <h2 id="result"></h2>
+    <script>
+        function calc(){
+            var x = Number(document.getElementById("a").value);
+            
+            if (document.getElementById("a").value.trim() === "") {
+                document.getElementById("result").innerHTML = "Enter a number";
+            } else if (x % 2 == 0) {
+                document.getElementById("result").innerHTML = "Even";
+            } else {
+                document.getElementById("result").innerHTML = "Odd";
+            }
+            return false;
+        }
+    </script>
+</body>
+</html>
