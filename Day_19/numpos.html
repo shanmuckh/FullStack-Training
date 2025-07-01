@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find the value is greater </title>
+</head>
+<body>
+    Enter a value:<input type="number" id="a"><br>
+    <button onclick="checkValue()">Check</button>
+    <div id="result"></div>
+
+    <script>
+        function checkValue() {
+            var a = document.getElementById("a").value;
+            var result;
+
+            if (a < 50) {
+                result = "Value is Less than 50";
+            } else if(a>50 && a<100) {
+                result = "Value is not greater than 50 and less than 100";
+            }
+            else {
+                result="THe value is greater than 100;"
+            }
+
+            document.getElementById("result").innerText = "Result: " + result;
+        }
+    </script>
+    
+</body>
+</html>

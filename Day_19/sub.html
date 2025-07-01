@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Average Calculator</title>
+</head>
+<body>
+    <h2>Average Calculator</h2>
+    <form id="avgForm"></form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" required><br><br>
+        <label for="sub1">Subject 1:</label>
+        <input type="number" id="sub1" required><br><br>
+        <label for="sub2">Subject 2:</label>
+        <input type="number" id="sub2" required><br><br>
+        <label for="sub3">Subject 3:</label>
+        <input type="number" id="sub3" required><br><br>
+        <button type="button" onclick="calculateAverage()">Get Average</button>
+    </form>
+    <p id="result"></p>
+
+    <script>
+        function calculateAverage() {
+            const name = document.getElementById('name').value;
+            const sub1 = parseFloat(document.getElementById('sub1').value);
+            const sub2 = parseFloat(document.getElementById('sub2').value);
+            const sub3 = parseFloat(document.getElementById('sub3').value);
+
+            if (isNaN(sub1) || isNaN(sub2) || isNaN(sub3)) {
+                document.getElementById('result').textContent = "Please enter valid numbers for all subjects.";
+                return;
+            }
+
+            const total = sub1 + sub2 + sub3;
+            const avg = (total / 3).toFixed(2);
+
+            let grade = '';
+            if (avg >= 90) grade = 'A';
+            else if (avg >= 80) grade = 'B';
+            else if (avg >= 70) grade = 'C';
+            else if (avg >= 60) grade = 'D';
+            else grade = 'F';
+
+            document.getElementById('result').innerHTML = `
+                <strong>Name:</strong> ${name} <br>
+                <strong>Total Marks:</strong> ${total} <br>
+                <strong>Average:</strong> ${avg} <br>
+                <strong>Grade:</strong> ${grade}
+            `;
+        }
+    </script>
+    </script>
+</body>
+</html>
