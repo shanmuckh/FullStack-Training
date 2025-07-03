@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Time Method Example</title>
+  </head>
+  <body onload="setInterval(setTime, 1000);">
+    <h1>Time Method Example</h1>
+    <center><h1 id="result"></h1></center>
+  </body>
+  <script>
+    // This will display the current time every second
+    function setTime() {
+      var x = new Date();
+      document.getElementById("result").innerHTML = x.toLocaleTimeString();
+    }
+  </script>
+</html>

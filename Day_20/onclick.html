@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BG change</title>
+</head>
+<body>
+    <button id="btn" onclick="changeBG()">Change Background</button>
+    <script>
+        function changeBG(){
+            var r=Math.floor(Math.random()*256);
+            var g=Math.floor(Math.random()*256);
+            var b=Math.floor(Math.random()*256);
+            console.log(r,g,b);
+            document.body.style.backgroundColor = "rgb("+r+","+g+","+b+")";
+            
+
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form validations</title>
+    <style>
+        .error { color: red; font-size: 0.9em; }
+        .success { color: green; font-size: 1em; }
+    </style>
+</head>
+<body>
+    <form action="" method="get" onsubmit="return valid();">
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="first name" name="name" >
+        <span id="nameError" class="error"></span>
+        <br>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" placeholder="lastName name="lastName">
+        <span id="lastNameError" class="error"></span>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="password" name="password">
+        <span id="passwordError" class="error"></span>
+        <br>
+        <label for="rePassword">Re-enter Password:</label>
+        <input type="password" placeholder="re enter password" id="rePassword" name="rePassword">
+        <span id="rePasswordError" class="error"></span>
+        <br>
+        <button type="submit">Submit</button>
+        <span id="formSuccess" class="success"></span>
+    </form>
+    <script>
+    function valid(){
+     
+        document.getElementById("nameError").textContent = "";
+        document.getElementById("lastNameError").textContent = "";
+        document.getElementById("passwordError").textContent = "";
+        document.getElementById("rePasswordError").textContent = "";
+        document.getElementById("formSuccess").textContent = "";
+
+        var user = document.getElementById("name").value;
+        var last = document.getElementById("lastName").value;
+        var pass = document.getElementById("password").value;
+        var rePass = document.getElementById("rePassword").value;
+        var valid = true;
+
+        if (user.length < 6 || user.length > 15) {
+            document.getElementById("nameError").textContent = "Name must be between 6 and 15 characters";
+            valid = false;
+        }
+        if (pass.length < 6 || pass.length > 15) {
+            document.getElementById("passwordError").textContent = "Password must be between 6 and 15 characters";
+            valid = false;
+        }
+        if (pass != rePass) {
+            document.getElementById("rePasswordError").textContent = "Passwords do not match";
+            valid = false;
+        }
+        if (valid) {
+            document.getElementById("formSuccess").textContent = "Form submitted successfully";
+        }
+        return false; 
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form validations</title>
+</head>
+<body>
+    <form action="" method="get" onsubmit="valid(); return false;">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" >
+        <br>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName">
+
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <br>
+        <label for="rePassword">Re-enter Password:</label>
+        <input type="password" id="rePassword" name="rePassword">
+        <button type="submit">Submit</button>
+        </form>
+        <script>
+        function valid(){
+            var user = document.getElementById("name").value;
+            var last = document.getElementById("lastName").value;
+            var pass = document.getElementById("password").value;
+            var rePass = document.getElementById("rePassword").value;
+            if (user.length < 6 || user.length > 15) {
+                alert("Name must be between 6 and 15 characters");
+            }
+            else if (pass.length < 6 || pass.length > 15) {
+                alert("Password must be between 6 and 15 characters");
+            }
+            else if (pass != rePass) {
+                alert("Passwords do not match");
+            }
+            else {
+                alert("Form submitted successfully");
+            }
+        }
+        </script>
+    
+</body>
+</html>

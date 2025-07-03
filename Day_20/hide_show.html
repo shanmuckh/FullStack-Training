@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="heading">Hello World</h1>
+    <button id="btn" onclick="toggleHeading()">Hide Heading</button>
+    <script>
+        function toggleHeading(){
+            var heading = document.getElementById("heading");
+            var button = document.getElementById("btn");
+
+            if (heading.style.display === "none") {
+                heading.style.display = "inline";
+                button.innerHTML = "Hide Heading";
+            } else {
+                heading.style.display = "none";
+                button.innerHTML = "Show Heading";
+            }
+        }
+    </script>
+
+</body>
+</html>

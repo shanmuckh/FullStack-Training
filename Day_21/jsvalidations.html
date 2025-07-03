@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validations problem</title>
+    <style>
+        .container{
+            width: 50%;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        table {
+            width: 100%;
+        }
+        td {
+            padding: 8px;
+            vertical-align: top;
+        }
+        .label {
+            text-align: right;
+            width: 30%;
+            /* font-weight: bold; */
+        }
+        .input {
+            width: 70%;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Js Validation</h1>
+        <hr>
+    </center>
+    <div class="container">
+        <form action="" method="post">
+            <table>
+                <tr>
+                    <td class="label">Username:</td>
+                    <td class="input">
+                        <input type="text" name="username" id="user">
+                        <br><span id="userError" style="color: red;"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">Email id:</td>
+                    <td class="input">
+                        <input type="email" name="email" id="email">
+                        <br><span id="emailError" style="color: red;"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">Gender:</td>
+                    <td class="input">
+                        <input type="radio" name="gender" value="male"> Male
+                        <input type="radio" name="gender" value="female"> Female
+                        <br><span id="genderError" style="color: red;"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">Phone number:</td>
+                    <td class="input">
+                        <input type="tel" name="phone" id="phone">
+                        <br><span id="phoneError" style="color: red;"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">Password:</td>
+                    <td class="input">
+                        <input type="password" name="password" id="password">
+                        <br><span id="passwordError" style="color: red;"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">Re-enter password:</td>
+                    <td class="input">
+                        <input type="password" name="repassword" id="repassword">
+                        <br><span id="repasswordError" style="color: red;"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="input" style="text-align:center;">
+                        <button type="submit" onclick="return validateForm()">Submit</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <script>
+        function validateForm() {
+            let user = document.getElementById("user").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let repassword = document.getElementById("repassword").value;
+            let phone = document.getElementById("phone").value;
+
+            let userError = document.getElementById("userError");
+            let emailError = document.getElementById("emailError");
+            let passwordError = document.getElementById("passwordError");
+            let repasswordError = document.getElementById("repasswordError");
+            let genderError = document.getElementById("genderError");
+            let phoneError = document.getElementById("phoneError");
+            userError.textContent = "";
+            emailError.textContent = "";    
+            passwordError.textContent = "";
+            repasswordError.textContent = "";
+            genderError.textContent = "";
+            phoneError.textContent = "";
+            let valid = true;
+            if (user.length < 6 || user.length > 15) {
+                userError.textContent = "Username must be between 6 and 15 characters";
+                valid = false;
+            }
+            if (email.length < 6 || email.length > 15) {
+                emailError.textContent = "Email must be between 6 and 15 characters";
+                valid = false;
+            }
+            if (password.length < 6 || password.length > 15) {
+                passwordError.textContent = "Password must be between 6 and 15 characters";
+                valid = false;
+            }
+            if (repassword.length < 6 || repassword.length > 15) {
+                repasswordError.textContent = "Re-entered password must be between 6 and 15 characters";
+                valid = false;
+            }
+            if (password !== repassword) {
+                repasswordError.textContent = "Passwords do not match";
+                valid = false;
+            }
+            if (!document.querySelector('input[name="gender"]:checked')) {
+                genderError.textContent = "Please select one";
+                valid = false;
+            }
+            if (phone.length < 10 || phone.length > 15) {
+                phoneError.textContent = "Phone number must be between 10 and 15 digits";
+                valid = false;
+            }
+            if (valid) {
+                alert("Form submitted successfully");
+            }
+            return valid;
+        }
+        </script>
+    </div>
+</body>
+</html>

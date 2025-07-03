@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="return valid();">
+        <label for="uname">Name</label>
+        <input type="text" id="uname" name="uname" placeholder="Name" onkeypress="msgHide('x')">
+        <span id="x" style="display:none;color:red;">please enter the 6-15 characters</span>
+        <br>
+        
+        <label for="repass">Re-password</label>
+        <input type="password" id="repass" name="repass" placeholder="Re-enter Password" onkeypress="msgHide('y')">
+        <span id="y" style="display:none;color:red;">please enter the 6-15 characters</span>
+        <br>
+        <label for="pass">Password</label>
+        <input type="password" id="pass" name="pass" placeholder="Password" onkeypress="msgHide('z')">
+        <span id="z" style="display:none;color:red;">please enter the 6-15 characters</span>
+        <br>
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" name="lname" placeholder="Last Name" onkeypress="msgHide('a')">
+        <span id="a" style="display:none;color:red;">please enter the 6-15 characters</span>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        function msgHide(id) {
+            document.getElementById(id).style.display = "none";
+        }
+
+        function valid() {
+            var x = document.getElementById("x");
+            var y = document.getElementById("y"); 
+            var z = document.getElementById("z");
+            var a = document.getElementById("a");
+            var uname = document.getElementById("uname").value;
+            var lname = document.getElementById("lname").value;
+            var pass = document.getElementById("pass").value;
+            var repass = document.getElementById("repass").value;
+            var valid = true;
+
+            x.style.display = "none";
+            y.style.display = "none";
+            z.style.display = "none";
+            a.style.display = "none";
+
+            if(uname.length < 6 || uname.length > 15){
+                x.style.display = "inline";
+                valid = false;
+            }
+            if(lname.length < 6 || lname.length > 15){
+                a.style.display = "inline";
+                valid = false;
+            }
+            if(pass.length < 6 || pass.length > 15){
+                z.style.display = "inline";
+                valid = false;
+            }
+            if(repass.length < 6 || repass.length > 15){
+                y.style.display = "inline";
+                valid = false;
+            }
+            if(pass !== repass){
+                alert("passwords do not match");
+                valid = false;
+            }
+            if(valid){
+                alert("form submitted successfully");
+            }
+            return valid;
+        }
+    </script>
+</body>
+</html>

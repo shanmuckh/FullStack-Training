@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+</head>
+<body>
+    <script>
+        let student={name:"satyabhama",age:23}
+        console.log(student);
+        console.log(student.name);
+        console.log(student.age);
+        console.log(student["name"]);
+        student.class="BCA";
+        console.log(student);
+        delete student.age;
+        console.log(student);
+        console.log(Object.keys(student));
+        console.log(Object.values(student));
+        console.log(Object.entries(student));
+        let car={"name":"BMW","model":"X5","year":2020,
+        
+        start:function(){
+            console.log("Car started");
+        }
+        };
+        console.log(car);
+       console.log( car.start());
+    </script>
+    
+</body>
+</html>

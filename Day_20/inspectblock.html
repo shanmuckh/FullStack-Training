@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onselectstart="return false;" oncontextmenu="return false;" ondragstart="return false;">
+    <!-- <h1>Welcome to Paisal Thelusuko page</h1> -->
+    Enter Full Amount:<input type="text" name="fa" id="fa" onkeyup="calc()"><br><br>
+    Enter Paid Amount:<input type="text" name="pa" id="pa" onkeyup="calc()"><br><br>
+    Enter Due Amount:<input type="text" name="da" id="da">
+    <span id="emsg" style="color: red;"></span>
+    <script>
+        function calc(){
+            var x = document.getElementById("fa");
+            var y = document.getElementById("pa");
+            var z = document.getElementById("da");
+            z.value = x.value - y.value;
+            if(Number(z.value) < 0){
+                document.getElementById("emsg").innerHTML = "Paid Amount is greater than Full Amount. Enter the amount correctly";
+            }
+            else if(Number(z.value) == 0){
+                document.getElementById("emsg").innerHTML = "There is no due amount";
+            }
+            else{
+                document.getElementById("emsg").innerHTML = "Here is your Due Amount";
+            }
+        }
+        onkeydown=function(event){
+            event=event || window.event;
+            if ((event.keyCode == 123) || (event.keyCode == 17)) {
+                alert('f12 and ctrl keys are disabled');
+                return false;
+            }    
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email to uppercase
+
+    </title>
+</head>
+<body>
+Enter your email: <input type="text" id="email" onkeyup="convertToUppercase()">
+Enter your email: <input type="text" id="email" onblur="onblur()">
+<script>
+    function convertToUppercase() {
+        var emailInput = document.getElementById("email");
+        emailInput.value = emailInput.value.toUpperCase();
+        document.write("Email in uppercase: " + emailInput.value);
+    }
+    function onblur() {
+        var x = document.getElementById("email").value;
+        x.value = x.toUpperCase();
+    }
+</script>
+    
+</body>
+</html>
