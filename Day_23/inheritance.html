@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inheritance</title>
+</head>
+<body>
+    <script>
+        function person(){
+            this.fname = "fname";
+            this.lname = "lname";
+        }
+        person.prototype.fullname = function() {
+            return this.fname + this.lname;
+        }
+        function Student() {
+            this.fname = "don";
+            this.lname = "user";
+        }
+        Student.prototype = Object.create(person.prototype);
+        Student.prototype.constructor = Student;
+        let p1 = new Student();
+        console.log(p1.fullname());
+        function Faculty(){
+            this.fname="king";
+            this.lname="jio";
+        }
+        Faculty.prototype=Object.create(Student.prototype)
+        let n=new Faculty();
+        console.log(n.fullname());
+    </script>
+    
+</body>
+</html>

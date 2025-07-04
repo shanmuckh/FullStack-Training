@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch
+
+    </title>
+</head>
+<body>
+    <div style="text-align:center; margin-top:50px;">
+        <h1 id="display">00:00:00.000</h1>
+        <button id="startBtn">Start</button>
+        <button id="stopBtn">Stop</button>
+        <button id="clearBtn">Clear</button>
+    </div>
+    <script>
+    let startTime, elapsed = 0, timerInterval;
+
+    function updateDisplay() {
+        let time = elapsed;
+        if (timerInterval) {
+            time += Date.now() - startTime;
+        }
+        let ms = time % 1000;
+        let s = Math.floor(time / 1000) % 60;
+        let m = Math.floor(time / 60000) % 60;
+        let h = Math.floor(time / 3600000);
+        document.getElementById('display').textContent =
+            `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}.${ms.toString().padStart(3,'0')}`;
+    }
+
+    document.getElementById('startBtn').onclick = function() {
+        if (!timerInterval) {
+            startTime = Date.now();
+            timerInterval = setInterval(updateDisplay, 10);
+        }
+    };
+    document.getElementById('stopBtn').onclick = function() {
+        if (timerInterval) {
+            elapsed += Date.now() - startTime;
+            clearInterval(timerInterval);
+            timerInterval = null;
+        }
+    };
+    document.getElementById('clearBtn').onclick = function() {
+        elapsed = 0;
+        clearInterval(timerInterval);
+        timerInterval = null;
+        updateDisplay();
+    };
+
+    updateDisplay();
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="demo"></ul>
+    <script>
+        var students = [
+            {name: "raj", course: "react"},
+            {name: "hon", course: "json"},
+            {name: "cun", course: "we"}
+        ];
+        for (var i = 0; i < students.length; i++) {
+            var my = "<li>" + students[i].name + " - " + students[i].course + "</li>";
+            document.getElementById("demo").innerHTML += my;
+        }
+    </script>
+</body>
+</html>

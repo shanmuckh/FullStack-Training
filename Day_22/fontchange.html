@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Paragraph Font Size Changer</title>
+</head>
+<body>
+    <label><input type="radio" name="fontsize" value="small" onclick="changeFontSize('small')"> Small</label>
+    <label><input type="radio" name="fontsize" value="medium" onclick="changeFontSize('medium')" checked> Medium</label>
+    <label><input type="radio" name="fontsize" value="large" onclick="changeFontSize('large')"> Large</label>
+    <br><br>
+    <p id="mypara">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium adipisci iure sequi, harum sunt pariatur. Corrupti labore dignissimos accusantium inventore error provident, accusamus maxime cum perspiciatis, architecto quaerat recusandae quo.</p>
+    <script>
+        function changeFontSize(size) {
+            var para = document.getElementById("mypara");
+            if(size === "small") {
+                para.style.fontSize = "12px";
+            } else if(size === "medium") {
+                para.style.fontSize = "18px";
+            } else if(size === "large") {
+                para.style.fontSize = "28px";
+            }
+        }
+        changeFontSize('medium');
+    </script>
+</body>
+</html>

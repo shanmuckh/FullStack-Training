@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product JSON Example with Image</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+      .product {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px;
+        display: inline-block;
+        text-align: center;
+      }
+      img {
+        max-width: 200px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Product JSON Example with Image</h1>
+    <div id="product"></div>
+    <script>
+      var products = [
+        {
+          image: "resources/laptop.jpeg",
+          name: "Laptop",
+          description: "High performance laptop",
+          price: 120000,
+        },
+        {
+          image: "resources/smartphone.jpeg",
+          name: "Smartphone",
+          description: "Latest model smartphone",
+          price: 80000,
+        },
+        {
+          image: "resources/headphones.jpeg",
+          name: "Headphones",
+          description: "Noise-cancelling headphones",
+          price: 15000,
+        },
+      ];
+
+      for (var i = 0; i < products.length; i++) {
+        var mydata =
+          "<div class='product'>" +
+          "<img src='" + products[i].image + "' alt='" + products[i].name + "'>" +
+          "<h2>" + products[i].name + "</h2>" +
+          "<p>" + products[i].description + "</p>" +
+          "<p>Price: ₹" + products[i].price + "</p>" +
+          "</div>";
+        document.getElementById("product").innerHTML += mydata;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee class with constructor</title>
+</head>
+<body>
+    <h1>Employee class with constructor</h1>
+    
+    <script>
+        class EmployeeObj{
+        constructor(name,id,salrary,designation) {
+            this.name=name;
+            this.id=id;
+            this.salrary=salrary;
+            this.designation=designation;
+        }
+        fullname() {
+            return `${this.name} (ID: ${this.id}), Salary: ${this.salrary}, Designation: ${this.designation}`;
+        }
+    }
+    let employee = new EmployeeObj("Jack Smithz", 101, 50000, "Software Engineer");
+    console.log(employee.fullname());
+    </script>
+</body>
+</html>

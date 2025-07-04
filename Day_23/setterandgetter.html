@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setters and getters</title>
+</head>
+<body>
+    <script>
+        function add(){
+            var name="pk";
+            this.age=20;
+            this.getName = function() {
+                return name;
+            }
+            this.setName = function(newName) {
+                name = newName;
+            }
+            this.getAge = function() {
+                return this.age;
+            }
+
+            this.setAge = function(newAge) {
+                this.age = newAge;
+            }
+
+        }
+        let obj = new add();
+        console.log(obj.getName()); 
+        console.log(obj.getAge());
+        console.log(name);//we cannot this variable because it is the private variable to can access this variable apply the setter and getters then the variable is convert into the public variable
+    </script>
+    
+</body>
+</html>

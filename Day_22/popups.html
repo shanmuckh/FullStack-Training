@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup boxes</title>
+</head>
+<body>
+    <h1>welcome</h1>
+    <button onclick="openWindow()">Open</button>
+    <script>
+    function openWindow(){
+        alert("This is an alert box!");
+        confirm("This is a confirm box! Do you want to proceed?") ;
+        var my=prompt("This is a prompt box! Please enter your name:");
+        document.write("Hello, " + my + "! Welcome to the popup box demo.");
+    }
+</script>
+    
+</body>
+</html>

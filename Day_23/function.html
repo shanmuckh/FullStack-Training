@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee class</title>
+</head>
+<body>
+    <script>
+        function Emplyee(name,id,salrary,designation) {
+            this.name = name;
+            this.id = id;
+            this.salrary = salrary;
+            this.designation = designation;
+            this.fullname = function() {
+                return this.name + " (ID: " + this.id + "), Salary: " + this.salrary + ", Designation: " + this.designation;
+            }
+            
+        }
+        let EmployeeObj = new Emplyee("John Doe", 101, 50000, "Software Engineer");
+        console.log(EmployeeObj.fullname());
+    </script>
+</body>
+</html>

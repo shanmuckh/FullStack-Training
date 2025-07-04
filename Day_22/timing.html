@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIming method</title>
+</head>
+<body>
+    <h1>Timing Method</h1>
+    <button onclick="startTiming()">Start Timing</button>
+    <button onclick="setTimeout(startTiming, 5000)">Start Timing with Delay</button>
+    <button onclick="setInterval(startTiming, 5000)">Start Timing with Interval</button>
+    <button onclick="clearInterval()">Clear Interval</button>
+    <script>
+        function startTiming(){
+            alert("Timing started!");
+        }
+    </script>
+    
+</body>
+</html>

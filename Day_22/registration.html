@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup Form with Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        form {
+            max-width: 450px;
+            margin: 40px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+        .form-group {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .form-group label {
+            width: 120px;
+        }
+        .form-group input {
+            flex: 1;
+            padding: 8px;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+            margin-left: 120px;
+            display: block;
+        }
+        .button-group {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button-group button {
+            padding: 8px 16px;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <form id="signupForm" autocomplete="off" novalidate>
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <span class="error" id="usernameError"></span>
+
+        <div class="form-group">
+            <label for="emailid">Email ID:</label>
+            <input type="email" id="emailid" name="emailid" required>
+        </div>
+        <span class="error" id="emailError"></span>
+
+        <div class="form-group">
+            <label for="phoneno">Phone No:</label>
+            <input type="text" id="phoneno" name="phoneno" required>
+        </div>
+        <span class="error" id="phoneError"></span>
+
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <span class="error" id="passwordError"></span>
+
+        <div class="button-group">
+            <button type="button" id="submitBtn">Submit</button>
+            <button type="submit">Signup</button>
+        </div>
+    </form>
+
+    <script>
+        const form = document.getElementById('signupForm');
+        const submitBtn = document.getElementById('submitBtn');
+
+        function validateForm(e, showAlert) {
+            let valid = true;
+            let alertMessages = [];
+
+            const username = form.username.value.trim();
+            const usernameRegex = /^[a-zA-Z0-9_]{3,16}$/;
+            if (!usernameRegex.test(username)) {
+                document.getElementById('usernameError').textContent = "Invalid username.";
+                valid = false;
+                if (showAlert) alertMessages.push("Username must be 3-16 characters and contain only letters, numbers, or underscores.");
+            } else {
+                document.getElementById('usernameError').textContent = "";
+            }
+
+            const email = form.emailid.value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                document.getElementById('emailError').textContent = "Invalid email.";
+                valid = false;
+                if (showAlert) alertMessages.push("Email contains invalid characters or format.");
+            } else {
+                document.getElementById('emailError').textContent = "";
+            }
+
+            const phone = form.phoneno.value.trim();
+            const phoneRegex = /^\d{10}$/;
+            if (!phoneRegex.test(phone)) {
+                document.getElementById('phoneError').textContent = "Invalid phone number.";
+                valid = false;
+                if (showAlert) alertMessages.push("Phone number must be exactly 10 digits and contain only numbers.");
+            } else {
+                document.getElementById('phoneError').textContent = "";
+            }
+
+            const password = form.password.value;
+            const passwordRegex = /^(?=.[A-Za-z])(?=.\d)[A-Za-z\d]{6,}$/;
+            if (!passwordRegex.test(password)) {
+                document.getElementById('passwordError').textContent = "Password must be at least 6 characters, include a letter and a number.";
+                valid = false;
+                if (showAlert) alertMessages.push("Password must be at least 6 characters and include only letters and numbers.");
+            } else {
+                document.getElementById('passwordError').textContent = "";
+            }
+
+            if (showAlert && alertMessages.length > 0) {
+                alert(alertMessages.join('\n'));
+            }
+
+            if (!valid && e) e.preventDefault();
+            return valid;
+        }
+
+        form.addEventListener('submit', function(e) {
+            validateForm(e, true);
+        });
+
+        submitBtn.addEventListener('click', function() {
+            validateForm(null, true);
+        });
+    </script>
+</body>
+</html>

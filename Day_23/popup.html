@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome to html web page</h1>
+    <button onclick="bomFun1()">Click to see the alert popup</button><br><br>
+    <button onclick="bomFun2()">Click to see the confirm popup</button><br><br>
+    <button onclick="bomFun3()">Click to see the prompt popup</button><br><br>
+    <h2>Result</h2>
+    <p>Click the button to see the result</p>
+    <p>Alert, Confirm, and Prompt </p>
+    <p>Alert is used to display a message to the user.</p>
+    <p>Confirm is used to ask the user a question with a Yes or No answer.</p>
+    <p>Prompt is used to ask the user for input.</p>
+    <p>Click the buttons above to see how they work.</p>
+    <script>
+        function bomFun1(){
+            alert("Hello guys");
+        }
+        function bomFun2(){
+            confirm("Yes or NO");
+        }
+        function bomFun3(){
+            var name=prompt("Enter Your Name");
+            document.getElementById("result").innerHTML = name;
+        }
+    </script>
+</body>
+</html>
