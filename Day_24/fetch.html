@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <div id="output"></div>
+     <script>
+         fetch("https://jsonplaceholder.typicode.com/photos")
+            .then(response => response.json())
+            .then(photos => {
+                let output = "";
+                for (let i = 0; i < photos.length; i++) {
+                    output += `<p>Album ID: ${photos[i].albumId}, ID: ${photos[i].id}, Title: ${photos[i].title}</p><img src="${photos[i].thumbnailUrl}" alt="Thumbnail" />`;
+                }
+                document.getElementById("output").innerHTML = output;
+            })
+            .catch(error => {
+                console.log("Error");
+            });
+    </script>
+</body>
+</html>

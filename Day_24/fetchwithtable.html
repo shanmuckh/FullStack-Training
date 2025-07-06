@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch with table</title>
+</head>
+<body>
+    <div id="output"></div>
+    <script>
+        fetch("https://jsonplaceholder.typicode.com/comments")
+            .then(response => response.json())
+            .then(comments => {
+                let output = `<table border="1" cellpadding="5" cellspacing="0">
+                    <tr>
+                        <th>Post ID</th>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Body</th>
+                    </tr>`;
+                for (let i = 0; i < comments.length; i++) {
+                    output += `<tr>
+                        <td>${comments[i].postId}</td>
+                        <td>${comments[i].id}</td>
+                        <td>${comments[i].name}</td>
+                        <td>${comments[i].email}</td>
+                        <td>${comments[i].body}</td>
+                    </tr>`;
+                }
+                output += `</table>`;
+                document.getElementById("output").innerHTML = output;
+            })
+            .catch(error => {
+                console.log("Error");
+            });
+    </script>
+</body>
+</html>
