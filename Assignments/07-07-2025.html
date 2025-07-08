@@ -1,0 +1,53 @@
+<!-- 📝 Assignment Title: Display University Logo in Circular Border using HTML
+& CSS
+🎯 Objective:
+Create a web page using HTML and internal CSS that displays the Malla Reddy University logo
+inside a circular blue border with padding.
+📌 Instructions:
+1. Use the image from this URL:
+👉https://excelr-sb-images.s3.eu-north-1.amazonaws.com/logo1.png
+2. Apply the following styles using internal CSS:
+• Width: 200px
+• Height: 200px
+• Border radius: 50% (to make it circular)
+• Border: 5px solid #0047AB
+• Object-fit: cover
+• Padding: 10px
+3. Use appropriate HTML5 structure (<!DOCTYPE html>, <head>, <body>, etc.).
+4. Add the following alt text to the image: "Malla Reddy University"
+✅ Expected Output Screenshot:
+📷 https://excelr-sb-images.s3.eu-north-1.amazonaws.com/Screenshot+from+2025-07-04+21-32-
+%0A20.png -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assingment</title>
+    <style>
+        img{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid #0047AB;
+
+        }
+    </style>
+</head>
+<body>
+    <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <marquee><img src="https://mycareersview.com/afile/mcv24193_unnamed.jpg" alt="Mallareddy University" style="animation: rotate 4s linear infinite;"></marquee>
+
+    <style>
+    @keyframes rotate {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    </style>
+    </div>
+    
+</body>
+</html>

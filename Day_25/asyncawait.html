@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Await Example</title>
+</head>
+<body>
+    <h1>Async Await Example</h1>
+    <p id="result"></p>
+    <button onclick="fetchData()">Fetch Data</button>
+</body>
+<script>
+    async function greet(){
+        return "Hello, World!";
+    }
+    greet().then((message)=> {
+        document.getElementById("result").innerHTML = message;
+    });
+    function getData(){
+        return new Promise((resolve, reject) => {
+           
+                resolve("Data fetched successfully!");
+        });
+    }
+    async function fetchData(){
+        const data = await getData();
+        document.getElementById("result").innerHTML = data;
+    }
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="counter('increment')">increment(+)</button>
+    <span id="count"></span>
+    <button onclick="counter('decrement')">decrement(-)</button>
+    <button onclick="getUser()">getUser</button>
+    <div id="user"></div>
+    <script>
+        let count=1;
+        let countElement = document.getElementById("count");
+        countElement.innerHTML = count;
+        function counter(val){
+            if(val === "increment"){
+                count++;
+            } else if(val === "decrement") {
+                count--;
+            }
+            countElement.innerHTML = count;
+        }
+        function getUser(){
+            let userElement = document.getElementById("user");
+            fetch(`https://jsonplaceholder.typicode.com/users/${count}`)
+                .then((response) => response.json())
+                .then((user) => {
+                    userElement.innerHTML = `<h2>${user.name}</h2>
+                    <p>${user.email}</p>
+                    <p>${user.address.city}</p>`;
+                });
+        }
+    </script>
+</body>
+</html>
