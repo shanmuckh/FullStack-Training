@@ -1,0 +1,13 @@
+h1 {
+  color: rgb(255, 0, 0);
+  font-size: 24px;
+text-align: center;
+    font-size: 75px;
+}
+image-container {
+ align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  text-align: center;
+}

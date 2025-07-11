@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Countdown Event Form</title>
+</head>
+<body>
+  <form id="eventForm">
+    <h1>Event Form</h1>
+
+    Event Title: <input type="text" id="eventTitle" required><br><br>
+    Event Description: <input type="text" id="description" required><br><br>
+    Event Date & Time: <input type="datetime-local" id="datetime" required><br><br>
+    Reminder Email: <input type="email" id="email" required><br><br>
+    Event Category:
+    <select id="category">
+      <option>Birthday</option>
+      <option>Wedding</option>
+      <option>Other</option>
+    </select><br><br>
+    Countdown Timer: <input type="datetime-local" id="countdown"><br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <div id="output"></div>
+  <div id="liveCountdown"></div>
+
+  <script>
+    let countdownInterval;
+    const events = [];
+
+    function renderEvents() {
+      const output = document.getElementById("output");
+      output.innerHTML = "";
+
+      events.forEach((event, index) => {
+        const card = document.createElement("div");
+        card.innerHTML = `
+          <h3>${event.title}</h3>
+          <p>${event.description}</p>
+          <p>Date: ${event.datetime}</p>
+          <p>Email Reminder: ${event.email}</p>
+          <p>Category: ${event.category}</p>
+          <button onclick="editEvent(${index})">Edit</button>
+          <button onclick="deleteEvent(${index})">Delete</button>
+          <hr>
+        `;
+        output.appendChild(card);
+      });
+    }
+
+    document.getElementById("eventForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const title = document.getElementById("eventTitle").value;
+      const description = document.getElementById("description").value;
+      const datetime = document.getElementById("datetime").value;
+      const email = document.getElementById("email").value;
+      const category = document.getElementById("category").value;
+      const countdown = document.getElementById("countdown").value;
+
+      events.push({
+        title,
+        description,
+        datetime,
+        email,
+        category,
+        countdown,
+        reminderSent: false
+      });
+
+      renderEvents();
+      startCountdown(countdown);
+      this.reset();
+    });
+
+    function deleteEvent(index) {
+      if (confirm("Are you sure you want to delete this event?")) {
+        events.splice(index, 1);
+        renderEvents();
+      }
+    }
+
+    function editEvent(index) {
+      const event = events[index];
+      document.getElementById("eventTitle").value = event.title;
+      document.getElementById("description").value = event.description;
+      document.getElementById("datetime").value = event.datetime;
+      document.getElementById("email").value = event.email;
+      document.getElementById("category").value = event.category;
+      document.getElementById("countdown").value = event.countdown;
+
+      events.splice(index, 1);
+      renderEvents();
+    }
+
+    function startCountdown(countdownTimeStr) {
+      const countdownTime = new Date(countdownTimeStr).getTime();
+      clearInterval(countdownInterval);
+
+      countdownInterval = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = countdownTime - now;
+
+        if (distance < 0) {
+          clearInterval(countdownInterval);
+          document.getElementById("liveCountdown").innerHTML = "Time's up!";
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("liveCountdown").innerHTML =
+          `Countdown: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+      }, 1000);
+    }
+
+    function checkEmailReminders() {
+      setInterval(() => {
+        const now = new Date().getTime();
+        const oneDayMs = 1000 * 60 * 60 * 24;
+
+        events.forEach(event => {
+          const eventTime = new Date(event.datetime).getTime();
+          const diff = eventTime - now;
+
+          if (diff > 0 && diff < oneDayMs && !event.reminderSent) {
+            console.log(`Reminder: "${event.title}" is happening tomorrow`);
+            console.log(`Email sent to: ${event.email}`);
+            alert(`Reminder: ${event.title} is happening tomorrow!\nEmail sent to: ${event.email}`);
+            event.reminderSent = true;
+          }
+        });
+      }, 1000);
+    }
+
+    checkEmailReminders();
+  </script>
+</body>
+</html>
